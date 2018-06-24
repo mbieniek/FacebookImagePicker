@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="?attr/selectableItemBackground">
+    android:background="?android:attr/selectableItemBackground">
 
     <ImageView
         android:id="@+id/facebook_album_avatar"

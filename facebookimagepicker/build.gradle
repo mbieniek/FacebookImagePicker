@@ -9,7 +9,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "com.mbieniek.facebookimagepicker.runner.RxAndroidJUnitRunner"
     }
@@ -64,7 +64,7 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.5.2'
     testImplementation junit
     testImplementation mockito
-    androidTestCompile 'org.mockito:mockito-android:2.6.2'
+    testImplementation 'org.mockito:mockito-android:2.6.2'
     testImplementation 'org.robolectric:robolectric:3.5.1'
     testImplementation 'org.robolectric:shadows-support-v4:3.3.2'
     androidTestImplementation junit
@@ -78,4 +78,22 @@ repositories {
     mavenCentral()
 }
 
-apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
+ext {
+    bintrayRepo = 'facebookimagepicker'
+    bintrayName = 'mbieniek'
+    publishedGroupId = 'com.mbieniek.facebookimagepicker'
+    libraryName = 'FacebookImagePicker'
+    artifact = 'facebookimagepicker'
+    libraryDescription = 'An Android Facebook image picker'
+    siteUrl = 'https://github.com/mbieniek/FacebookImagePicker'
+    gitUrl = 'https://github.com/mbieniek/FacebookImagePicker.git'
+    libraryVersion = '1.0.0'
+    developerId = 'mbieniek'
+    developerName = 'Michael Bieniek'
+    developerEmail = 'michaelpbieniek@gmail.com'
+    licenseName = 'MIT License'
+    licenseUrl = 'https://opensource.org/licenses/MIT'
+    allLicenses = ["MIT"]
+}
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'

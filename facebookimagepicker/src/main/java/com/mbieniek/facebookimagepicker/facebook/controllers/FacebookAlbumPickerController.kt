@@ -42,7 +42,7 @@ class FacebookAlbumPickerController(val activity: Activity) {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ albumList ->
                     facebookAlbumAdapter.addAlbumList(albumList)
-                }, { throwable ->
+                }, { _ ->
 
                 })
     }

@@ -28,7 +28,7 @@ class FacebookImagePickerController(val albumId: Long, imageSelectedListener: Fa
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ imageList ->
                     facebookImageAdapter.addImageList(imageList)
-                }, { throwable ->
+                }, { _ ->
 
                 })
     }
