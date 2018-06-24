@@ -47,3 +47,4 @@ captures/
 .metadata/
 
 .DS_Store
+*.asc
