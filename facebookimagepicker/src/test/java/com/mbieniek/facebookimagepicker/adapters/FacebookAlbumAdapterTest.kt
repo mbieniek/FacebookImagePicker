@@ -1,8 +1,8 @@
 package com.mbieniek.facebookimagepicker.adapters
 
 import android.widget.FrameLayout
-import com.mbieniek.android.ui.facebook.adapters.FacebookAlbumAdapter
 import com.mbieniek.facebookimagepicker.BuildConfig
+import com.mbieniek.facebookimagepicker.facebook.adapters.FacebookAlbumAdapter
 import com.mbieniek.facebookimagepicker.facebook.models.FacebookAlbum
 import com.mbieniek.facebookimagepicker.util.DefaultConfig
 import org.junit.Before

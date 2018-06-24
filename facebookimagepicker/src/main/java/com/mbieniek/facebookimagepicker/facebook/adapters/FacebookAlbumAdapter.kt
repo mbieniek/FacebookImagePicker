@@ -1,7 +1,6 @@
-package com.mbieniek.android.ui.facebook.adapters
+package com.mbieniek.facebookimagepicker.facebook.adapters
 
 import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.support.v4.content.ContextCompat
 import android.support.v4.graphics.drawable.DrawableCompat
 import android.support.v7.widget.RecyclerView

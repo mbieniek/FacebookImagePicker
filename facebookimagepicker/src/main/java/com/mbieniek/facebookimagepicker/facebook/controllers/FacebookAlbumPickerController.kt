@@ -3,12 +3,12 @@ package com.mbieniek.facebookimagepicker.facebook.controllers
 import android.app.Activity
 import android.content.Intent
 import android.support.v7.widget.RecyclerView
-import com.mbieniek.android.ui.facebook.adapters.FacebookAlbumAdapter
 import com.facebook.AccessToken
 import com.mbieniek.facebookimagepicker.facebook.FACEBOOK_ALBUM_ID_KEY
 import com.mbieniek.facebookimagepicker.facebook.FACEBOOK_ALBUM_NAME_KEY
 import com.mbieniek.facebookimagepicker.facebook.FACEBOOK_IMAGE_ACTIVITY_REQUEST_CODE
 import com.mbieniek.facebookimagepicker.facebook.FacebookImagePickerActivity
+import com.mbieniek.facebookimagepicker.facebook.adapters.FacebookAlbumAdapter
 import com.mbieniek.facebookimagepicker.facebook.data.FacebookDataManager
 import com.mbieniek.facebookimagepicker.facebook.models.FacebookAlbum
 import io.reactivex.android.schedulers.AndroidSchedulers
