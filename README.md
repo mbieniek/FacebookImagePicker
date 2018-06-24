@@ -4,7 +4,10 @@ An Android Facebook image picker built using Kotlin, RxJava2, and Facebook's Gra
 
 # Demo
 Selecting Facebook images once authenticated by Facebook: </br>
-![](https://i.imgur.com/OAwDm00.gif)
+![](https://i.imgur.com/OAwDm00.gif) </br>
+
+Allowing the library to handle authentication if the user hasn't given your app Facebook permission to access photos. Note that the app name/title that the library displays will be based on your facebook_app_id. </br>
+![](https://i.imgur.com/WBaV0Ut.gif) </br>
 
 # Usage
 
