@@ -81,7 +81,7 @@ repositories {
 ext {
     bintrayRepo = 'facebookimagepicker'
     bintrayName = 'mbieniek'
-    publishedGroupId = 'com.mbieniek.facebookimagepicker'
+    publishedGroupId = 'com.github.mbieniek.facebookimagepicker'
     libraryName = 'FacebookImagePicker'
     artifact = 'facebookimagepicker'
     libraryDescription = 'An Android Facebook image picker'
