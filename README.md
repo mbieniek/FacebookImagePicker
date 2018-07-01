@@ -1,3 +1,6 @@
+ [ ![Download](https://api.bintray.com/packages/mbieniek/facebookimagepicker/mbieniek/images/download.svg?version=1.0.0) ](https://bintray.com/mbieniek/facebookimagepicker/mbieniek/1.0.0/link)
+
+
 # FacebookImagePicker
 
 An Android Facebook image picker built using Kotlin, RxJava2, and Facebook's Graph API. The library allows the user to browse through their Facebook albums and images. This will require the Facebook app being used to have the "user_photos" permission. The library allows the user to select a number of photos and will return the associated preview and source URLs for the photo(s) selected. The sample app shows an example of how to use the selected Facebook image data to download and use the image(s) within an ImageView.
