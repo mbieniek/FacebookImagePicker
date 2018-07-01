@@ -14,6 +14,23 @@ Allowing the library to handle authentication if the user hasn't given your app 
 ## Setup
 Your app will need to be configured and registered with Facebook. Click [here](https://developers.facebook.com/docs/android/) to learn more if you haven't done this yet. See the sample app for a practical example of how to use this.
 
+### Importing Library
+In your build.gradle, add:
+```
+implementation 'com.github.mbieniek.facebookimagepicker:facebookimagepicker:1.0.0'
+```
+
+In your Android Manifest, add:
+```
+<activity android:name="com.mbieniek.facebookimagepicker.facebook.FacebookAlbumPickerActivity"
+    android:screenOrientation="portrait" />
+
+<activity android:name="com.mbieniek.facebookimagepicker.facebook.FacebookImagePickerActivity"
+    android:screenOrientation="portrait"
+    android:parentActivityName="com.mbieniek.facebookimagepicker.facebook.FacebookAlbumPickerActivity" />
+```
+
+
 ## Starting and Getting Results
 
 To start the activity:
@@ -55,7 +72,7 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
 ```
     
 ## Customization
-The level of customization is pretty limited right now. There is a singleton in the library called FacebookImagePickerSettings which contains a bunch of tweakable variables.
+The level of customization is pretty limited right now. There is a singleton in the library called FacebookImagePickerSettings which contains a bunch of tweakable variables. I do want to move styling to a theme but haven't done that yet.
 
 ```kotlin
 object FacebookImagePickerSettings {
