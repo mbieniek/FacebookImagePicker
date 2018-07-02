@@ -15,6 +15,14 @@ import com.mbieniek.facebookimagepicker.facebook.util.inflate
 import com.squareup.picasso.Picasso
 
 import kotlinx.android.synthetic.main.item_facebook_album.view.*
+import android.graphics.PorterDuff
+import android.os.Build
+import android.os.Build.VERSION_CODES
+import android.os.Build.VERSION_CODES.LOLLIPOP
+import android.os.Build.VERSION
+import android.os.Build.VERSION.SDK_INT
+
+
 
 
 /**
@@ -48,7 +56,13 @@ class FacebookAlbumAdapter(val albumSelectedListener: AlbumSelectedListener) : R
             itemView.facebook_album_name.text = album.name
             itemView.facebook_album_photo_count.text = album.count.toString()
             val placeholderDrawable = ContextCompat.getDrawable(itemView.context, R.drawable.ic_collections_24dp)
-            DrawableCompat.setTint(placeholderDrawable!!, Color.parseColor(FacebookImagePickerSettings.placeholderDrawableColor))
+            val color = Color.parseColor(FacebookImagePickerSettings.placeholderDrawableColor)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                DrawableCompat.setTint(placeholderDrawable!!, color)
+
+            } else {
+                placeholderDrawable!!.mutate().setColorFilter(color, PorterDuff.Mode.SRC_IN)
+            }
 
             if (album.coverPhotoId != null) {
                 val url = String.format(FACEBOOK_PICTURE_URL, album.coverPhotoId, AccessToken.getCurrentAccessToken().token)
