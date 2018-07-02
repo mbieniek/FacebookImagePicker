@@ -1,4 +1,4 @@
- [ ![Download](https://api.bintray.com/packages/mbieniek/facebookimagepicker/mbieniek/images/download.svg?version=1.0.0) ](https://bintray.com/mbieniek/facebookimagepicker/mbieniek/1.0.0/link)
+ [ ![Download](https://api.bintray.com/packages/mbieniek/facebookimagepicker/mbieniek/images/download.svg?version=1.0.1) ](https://bintray.com/mbieniek/facebookimagepicker/mbieniek/1.0.1/link)
 
 
 # FacebookImagePicker
