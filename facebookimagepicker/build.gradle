@@ -84,7 +84,7 @@ ext {
     libraryDescription = 'An Android Facebook image picker'
     siteUrl = 'https://github.com/mbieniek/FacebookImagePicker'
     gitUrl = 'https://github.com/mbieniek/FacebookImagePicker.git'
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.0.1'
     developerId = 'mbieniek'
     developerName = 'Michael Bieniek'
     developerEmail = 'michaelpbieniek@gmail.com'
