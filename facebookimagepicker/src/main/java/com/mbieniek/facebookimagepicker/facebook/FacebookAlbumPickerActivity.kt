@@ -14,7 +14,6 @@ import com.facebook.FacebookException
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.mbieniek.facebookimagepicker.R
-import com.mbieniek.facebookimagepicker.facebook.FacebookImagePickerSettings
 import com.mbieniek.facebookimagepicker.facebook.controllers.FacebookAlbumPickerController
 import com.mbieniek.facebookimagepicker.facebook.controllers.PERMISSION_USER_PHOTOS
 import java.util.*

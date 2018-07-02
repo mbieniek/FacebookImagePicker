@@ -3,6 +3,7 @@ package com.mbieniek.facebookimagepicker.facebook.controllers
 import android.app.Activity
 import android.content.Intent
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import com.facebook.AccessToken
 import com.mbieniek.facebookimagepicker.facebook.FACEBOOK_ALBUM_ID_KEY
 import com.mbieniek.facebookimagepicker.facebook.FACEBOOK_ALBUM_NAME_KEY
@@ -42,8 +43,8 @@ class FacebookAlbumPickerController(val activity: Activity) {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ albumList ->
                     facebookAlbumAdapter.addAlbumList(albumList)
-                }, { _ ->
-
+                }, { throwable ->
+                    Log.e("FACEBOOKIMAGEPICKER", "Error requesting albums from Facebook", throwable)
                 })
     }
 

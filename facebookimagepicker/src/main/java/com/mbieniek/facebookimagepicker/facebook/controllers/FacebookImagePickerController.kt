@@ -1,6 +1,7 @@
 package com.mbieniek.facebookimagepicker.facebook.controllers
 
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import com.facebook.AccessToken
 import com.mbieniek.facebookimagepicker.facebook.adapters.FacebookImageAdapter
 import com.mbieniek.facebookimagepicker.facebook.data.FacebookDataManager
@@ -28,8 +29,8 @@ class FacebookImagePickerController(val albumId: Long, imageSelectedListener: Fa
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ imageList ->
                     facebookImageAdapter.addImageList(imageList)
-                }, { _ ->
-
+                }, { throwable ->
+                    Log.e("FACEBOOKIMAGEPICKER", "Error requesting images from Facebook", throwable)
                 })
     }
 
