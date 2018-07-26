@@ -4,10 +4,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.mbieniek.facebookimagepicker.R
 import com.mbieniek.facebookimagepicker.facebook.FacebookImagePickerSettings
 import com.mbieniek.facebookimagepicker.facebook.models.FacebookPicture
 import com.mbieniek.facebookimagepicker.facebook.util.inflate
+import com.mbieniek.facebookimagepicker.facebook.util.loadImage
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_facebook_image.view.*
 
@@ -56,9 +58,7 @@ class FacebookImageAdapter(val imageSelectedListener: ImageSelectedListener) : R
 
     class FacebookImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(image: FacebookPicture, imageClickListener: ImageClickListener, isSelected: Boolean) {
-            Picasso.with(itemView.context)
-                    .load(image.previewUrl)
-                    .into(itemView.facebook_picture_image)
+            loadImage(itemView.context, image.previewUrl, itemView.facebook_picture_image)
 
             itemView.setOnClickListener { v ->
                 imageClickListener.imageClicked(v, image)
