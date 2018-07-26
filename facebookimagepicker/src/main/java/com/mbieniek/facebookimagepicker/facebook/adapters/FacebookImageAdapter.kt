@@ -4,13 +4,11 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.bumptech.glide.Glide
 import com.mbieniek.facebookimagepicker.R
 import com.mbieniek.facebookimagepicker.facebook.FacebookImagePickerSettings
 import com.mbieniek.facebookimagepicker.facebook.models.FacebookPicture
 import com.mbieniek.facebookimagepicker.facebook.util.inflate
 import com.mbieniek.facebookimagepicker.facebook.util.loadImage
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_facebook_image.view.*
 
 
