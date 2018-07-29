@@ -1,21 +1,17 @@
 package com.mbieniek.facebookimagepicker.facebook.adapters
 
-import android.graphics.Color
-import android.support.v4.content.ContextCompat
-import android.support.v4.graphics.drawable.DrawableCompat
+import android.graphics.drawable.Drawable
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import com.facebook.AccessToken
 import com.mbieniek.facebookimagepicker.R
-import com.mbieniek.facebookimagepicker.facebook.FacebookImagePickerSettings
 import com.mbieniek.facebookimagepicker.facebook.data.FACEBOOK_PICTURE_URL
 import com.mbieniek.facebookimagepicker.facebook.models.FacebookAlbum
 import com.mbieniek.facebookimagepicker.facebook.util.inflate
 
 import kotlinx.android.synthetic.main.item_facebook_album.view.*
-import android.graphics.PorterDuff
-import android.os.Build
+import com.mbieniek.facebookimagepicker.facebook.util.getImageViewPlaceholder
 import com.mbieniek.facebookimagepicker.facebook.util.loadImage
 
 /**
@@ -44,22 +40,23 @@ class FacebookAlbumAdapter(val albumSelectedListener: AlbumSelectedListener) : R
     }
 
     class FacebookAlbumViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var imagePlaceHolder : Drawable? = null
+
+        init {
+            imagePlaceHolder = getImageViewPlaceholder(itemView.context)
+        }
 
         fun bind(album: FacebookAlbum, albumSelectedListener: AlbumSelectedListener) {
             itemView.facebook_album_name.text = album.name
             itemView.facebook_album_photo_count.text = album.count.toString()
-            val placeholderDrawable = ContextCompat.getDrawable(itemView.context, R.drawable.ic_collections_24dp)
-            val color = Color.parseColor(FacebookImagePickerSettings.placeholderDrawableColor)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                DrawableCompat.setTint(placeholderDrawable!!, color)
-
-            } else {
-                placeholderDrawable!!.mutate().setColorFilter(color, PorterDuff.Mode.SRC_IN)
-            }
 
             if (album.coverPhotoId != null) {
                 val url = String.format(FACEBOOK_PICTURE_URL, album.coverPhotoId, AccessToken.getCurrentAccessToken().token)
-                loadImage(itemView.context, url, itemView.facebook_album_avatar, placeholderDrawable)
+                if (imagePlaceHolder != null) {
+                    loadImage(itemView.context, url, itemView.facebook_album_avatar, imagePlaceHolder!!)
+                } else {
+                    loadImage(itemView.context, url, itemView.facebook_album_avatar)
+                }
             }
             itemView.setOnClickListener { _ ->
                 albumSelectedListener.albumSelected(album)

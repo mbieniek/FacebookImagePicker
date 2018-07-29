@@ -1,5 +1,7 @@
 package com.mbieniek.facebookimagepicker.facebook
 
+import com.mbieniek.facebookimagepicker.R
+
 /**
  * Created by michaelbieniek on 3/30/18.
  */
@@ -10,6 +12,7 @@ object FacebookImagePickerSettings {
     var imagesSelectedText : String = "Select (%d)"
     var maximumImagesSelectedText : String = "You\'ve reached the maximum limit of photos that can be selected!"
     var placeholderDrawableColor : String = "#000000"
+    var placeholderDrawableResourceId : Int = R.drawable.ic_collections_24dp
 
     val picassoAvailable = picassoCheck()
     val glideAvailable = glideCheck()

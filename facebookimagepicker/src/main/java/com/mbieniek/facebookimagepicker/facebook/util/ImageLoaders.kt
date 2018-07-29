@@ -8,7 +8,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.mbieniek.facebookimagepicker.facebook.FacebookImagePickerSettings
 import com.squareup.picasso.Picasso
 
-fun loadImage(context: Context, url: String, imageView: ImageView, placeholder: Drawable? = null) {
+fun loadImage(context: Context, url: String, imageView: ImageView, placeholder: Drawable) {
     when {
         FacebookImagePickerSettings.glideAvailable -> {
             val options = RequestOptions().placeholder(placeholder)
@@ -17,9 +17,23 @@ fun loadImage(context: Context, url: String, imageView: ImageView, placeholder: 
                     .load(url)
                     .into(imageView)
         }
-        FacebookImagePickerSettings.picassoAvailable -> Picasso.with(context)
+        FacebookImagePickerSettings.picassoAvailable -> Picasso.get()
                 .load(url)
                 .placeholder(placeholder)
+                .into(imageView)
+        else -> throw RuntimeException("No Image Loading Library Detected")
+    }
+}
+
+fun loadImage(context: Context, url: String, imageView: ImageView) {
+    when {
+        FacebookImagePickerSettings.glideAvailable -> {
+            Glide.with(context)
+                    .load(url)
+                    .into(imageView)
+        }
+        FacebookImagePickerSettings.picassoAvailable -> Picasso.get()
+                .load(url)
                 .into(imageView)
         else -> throw RuntimeException("No Image Loading Library Detected")
     }
@@ -34,7 +48,7 @@ fun loadImage(context: Context, url: String, imageView: ImageView, placeholder: 
                     .load(url)
                     .into(imageView)
         }
-        FacebookImagePickerSettings.picassoAvailable -> Picasso.with(context)
+        FacebookImagePickerSettings.picassoAvailable -> Picasso.get()
                 .load(url)
                 .placeholder(placeholder)
                 .into(imageView)
