@@ -10,4 +10,27 @@ object FacebookImagePickerSettings {
     var imagesSelectedText : String = "Select (%d)"
     var maximumImagesSelectedText : String = "You\'ve reached the maximum limit of photos that can be selected!"
     var placeholderDrawableColor : String = "#000000"
+
+    val picassoAvailable = picassoCheck()
+    val glideAvailable = glideCheck()
+
+    private fun picassoCheck(): Boolean {
+        try {
+            Class.forName("com.squareup.picasso.Picasso")
+            return true
+        } catch (ex: ClassNotFoundException) {
+            ex.printStackTrace()
+        }
+        return false
+    }
+
+    private fun glideCheck(): Boolean {
+        try {
+            Class.forName("com.bumptech.glide.Glide")
+            return true
+        } catch (ex: ClassNotFoundException) {
+            ex.printStackTrace()
+        }
+        return false
+    }
 }

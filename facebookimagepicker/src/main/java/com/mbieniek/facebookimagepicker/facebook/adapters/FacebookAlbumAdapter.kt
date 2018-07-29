@@ -12,18 +12,11 @@ import com.mbieniek.facebookimagepicker.facebook.FacebookImagePickerSettings
 import com.mbieniek.facebookimagepicker.facebook.data.FACEBOOK_PICTURE_URL
 import com.mbieniek.facebookimagepicker.facebook.models.FacebookAlbum
 import com.mbieniek.facebookimagepicker.facebook.util.inflate
-import com.squareup.picasso.Picasso
 
 import kotlinx.android.synthetic.main.item_facebook_album.view.*
 import android.graphics.PorterDuff
 import android.os.Build
-import android.os.Build.VERSION_CODES
-import android.os.Build.VERSION_CODES.LOLLIPOP
-import android.os.Build.VERSION
-import android.os.Build.VERSION.SDK_INT
-
-
-
+import com.mbieniek.facebookimagepicker.facebook.util.loadImage
 
 /**
  * Created by michaelbieniek on 3/17/18.
@@ -66,10 +59,7 @@ class FacebookAlbumAdapter(val albumSelectedListener: AlbumSelectedListener) : R
 
             if (album.coverPhotoId != null) {
                 val url = String.format(FACEBOOK_PICTURE_URL, album.coverPhotoId, AccessToken.getCurrentAccessToken().token)
-                Picasso.with(itemView.context)
-                        .load(url)
-                        .placeholder(placeholderDrawable)
-                        .into(itemView.facebook_album_avatar)
+                loadImage(itemView.context, url, itemView.facebook_album_avatar, placeholderDrawable)
             }
             itemView.setOnClickListener { _ ->
                 albumSelectedListener.albumSelected(album)
