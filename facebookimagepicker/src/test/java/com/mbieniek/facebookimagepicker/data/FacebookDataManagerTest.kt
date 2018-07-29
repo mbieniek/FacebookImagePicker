@@ -72,7 +72,7 @@ class FacebookDataManagerTest {
 
         facebookDataManager.requestAlbums(accessToken)
 
-        verify(facebookDataManager).createGraphRequest(accessToken, "me/albums?fields=id,name,count,cover_photo")
+        verify(facebookDataManager).createGraphRequest(accessToken, "me/albums", "id","name","count","cover_photo")
     }
 
     @Test
@@ -85,18 +85,18 @@ class FacebookDataManagerTest {
 
     @Test
     fun testConvertJsonArrayToFacebookPictureList() {
-        val jsonObject = JSONObject("{\"data\":[{\"picture\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t1.0-0\\/s130x130\\/270092_10151536290508574_1139628428_n.jpg?_nc_cat=0&oh=d1e780df03551c4325e92ad43322c74d&oe=5B70EFF4\",\"source\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t1.0-9\\/270092_10151536290508574_1139628428_n.jpg?_nc_cat=0&oh=1b64fe3b87628c658ce43201b916c2ed&oe=5B3B6822\",\"id\":\"10151536290508574\"},{\"picture\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t1.0-0\\/s130x130\\/551905_10151411162448574_810155800_n.jpg?_nc_cat=0&oh=5ee4ba31a68a12d5021f6a59d03fb0f3&oe=5B291F0C\",\"source\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t1.0-9\\/551905_10151411162448574_810155800_n.jpg?_nc_cat=0&oh=8fa4515af4bcbd10e1b1d2dd7e99a2fb&oe=5B6B5DEA\",\"id\":\"10151411162448574\"}]}")
+        val jsonObject = JSONObject("{\"data\":[{\"picture\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t1.0-0\\/s130x130\\/35544794_10157517343198574_3735050461368025088_n.jpg?_nc_cat=0&oh=4801591588d7c661abcd7943ed9a5eb3&oe=5C0E8844\",\"id\":\"10157517343193574\",\"images\":[{\"height\":473,\"source\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t1.0-9\\/35544794_10157517343198574_3735050461368025088_n.jpg?_nc_cat=0&oh=a1c00fe40697274679737e985d181a06&oe=5BC627A2\",\"width\":465},{\"height\":325,\"source\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t1.0-0\\/p320x320\\/35544794_10157517343198574_3735050461368025088_n.jpg?_nc_cat=0&oh=5cb12f626fa2f66036e8f032802e8214&oe=5BDD4E15\",\"width\":320},{\"height\":132,\"source\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t1.0-0\\/p130x130\\/35544794_10157517343198574_3735050461368025088_n.jpg?_nc_cat=0&oh=37445ae7781317cb707f5552645f535f&oe=5BD36605\",\"width\":130},{\"height\":225,\"source\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t1.0-0\\/p75x225\\/35544794_10157517343198574_3735050461368025088_n.jpg?_nc_cat=0&oh=06d147fe2787f7c62fe46be5ce18d792&oe=5BC880B3\",\"width\":221}]},{\"picture\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t1.0-0\\/p130x130\\/31395126_10157369563553574_6961709195396768105_n.jpg?_nc_cat=0&oh=630292bdcb7186c5adc33ed7c06b57f5&oe=5BD456C5\",\"id\":\"10157369563553574\",\"images\":[{\"height\":1440,\"source\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t31.0-8\\/30814079_10157369563553574_6961709195396768105_o.jpg?_nc_cat=0&oh=32e26e1e19f4f5d6e0db5ef3b30b1d98&oe=5BD79CBA\",\"width\":1440},{\"height\":960,\"source\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t1.0-9\\/31395126_10157369563553574_6961709195396768105_n.jpg?_nc_cat=0&oh=b01dcc645d4120d51d57e1b18e9e4a59&oe=5BCF3C62\",\"width\":960},{\"height\":720,\"source\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t31.0-8\\/p720x720\\/30814079_10157369563553574_6961709195396768105_o.jpg?_nc_cat=0&oh=89c5843eab6bdfc0b9a5bd942c2900e8&oe=5BCBBB29\",\"width\":720},{\"height\":600,\"source\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t1.0-0\\/p600x600\\/31395126_10157369563553574_6961709195396768105_n.jpg?_nc_cat=0&oh=f49af340a82438c0a24828a3b21772bb&oe=5C0619AD\",\"width\":600},{\"height\":480,\"source\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t1.0-0\\/p480x480\\/31395126_10157369563553574_6961709195396768105_n.jpg?_nc_cat=0&oh=00f66ad28a425fd9bafda94a5424c4a1&oe=5BD4A197\",\"width\":480},{\"height\":320,\"source\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t1.0-0\\/p320x320\\/31395126_10157369563553574_6961709195396768105_n.jpg?_nc_cat=0&oh=1bea5d3d1c4c654d2e34c462816836f2&oe=5C077FD5\",\"width\":320},{\"height\":540,\"source\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t1.0-0\\/p180x540\\/31395126_10157369563553574_6961709195396768105_n.jpg?_nc_cat=0&oh=e0121e2a22bf8881473241d318b1fc0b&oe=5BC944F0\",\"width\":540},{\"height\":130,\"source\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t1.0-0\\/p130x130\\/31395126_10157369563553574_6961709195396768105_n.jpg?_nc_cat=0&oh=630292bdcb7186c5adc33ed7c06b57f5&oe=5BD456C5\",\"width\":130},{\"height\":225,\"source\":\"https:\\/\\/scontent.xx.fbcdn.net\\/v\\/t1.0-0\\/p75x225\\/31395126_10157369563553574_6961709195396768105_n.jpg?_nc_cat=0&oh=36dfd50fc3d77e265bfe2ef3baa4343d&oe=5C08EE73\",\"width\":225}]}]}")
 
         val result = facebookDataManager.convertJsonObjectToFacebookPictureList(jsonObject)
         assertEquals(2, result.size)
         val firstPicture = result[0]
-        assertEquals(10151536290508574, firstPicture.id)
-        assertEquals("https://scontent.xx.fbcdn.net/v/t1.0-0/s130x130/270092_10151536290508574_1139628428_n.jpg?_nc_cat=0&oh=d1e780df03551c4325e92ad43322c74d&oe=5B70EFF4", firstPicture.previewUrl)
-        assertEquals("https://scontent.xx.fbcdn.net/v/t1.0-9/270092_10151536290508574_1139628428_n.jpg?_nc_cat=0&oh=1b64fe3b87628c658ce43201b916c2ed&oe=5B3B6822", firstPicture.sourceUrl)
+        assertEquals(10157517343193574, firstPicture.id)
+        assertEquals("https://scontent.xx.fbcdn.net/v/t1.0-0/s130x130/35544794_10157517343198574_3735050461368025088_n.jpg?_nc_cat=0&oh=4801591588d7c661abcd7943ed9a5eb3&oe=5C0E8844", firstPicture.previewUrl)
+        assertEquals("https://scontent.xx.fbcdn.net/v/t1.0-9/35544794_10157517343198574_3735050461368025088_n.jpg?_nc_cat=0&oh=a1c00fe40697274679737e985d181a06&oe=5BC627A2", firstPicture.sourceUrl)
         val secondPicture = result[1]
-        assertEquals(10151411162448574, secondPicture.id)
-        assertEquals("https://scontent.xx.fbcdn.net/v/t1.0-0/s130x130/551905_10151411162448574_810155800_n.jpg?_nc_cat=0&oh=5ee4ba31a68a12d5021f6a59d03fb0f3&oe=5B291F0C", secondPicture.previewUrl)
-        assertEquals("https://scontent.xx.fbcdn.net/v/t1.0-9/551905_10151411162448574_810155800_n.jpg?_nc_cat=0&oh=8fa4515af4bcbd10e1b1d2dd7e99a2fb&oe=5B6B5DEA", secondPicture.sourceUrl)
+        assertEquals(10157369563553574, secondPicture.id)
+        assertEquals("https://scontent.xx.fbcdn.net/v/t1.0-0/p130x130/31395126_10157369563553574_6961709195396768105_n.jpg?_nc_cat=0&oh=630292bdcb7186c5adc33ed7c06b57f5&oe=5BD456C5", secondPicture.previewUrl)
+        assertEquals("https://scontent.xx.fbcdn.net/v/t31.0-8/30814079_10157369563553574_6961709195396768105_o.jpg?_nc_cat=0&oh=32e26e1e19f4f5d6e0db5ef3b30b1d98&oe=5BD79CBA", secondPicture.sourceUrl)
     }
 
     @Test
@@ -104,12 +104,12 @@ class FacebookDataManagerTest {
         val accessToken = AccessToken("test", "test", "test", null, null, null, null, null)
         val mockGraphRequest = mock(GraphRequest::class.java)
         val mockGraphResponse = mock(GraphResponse::class.java)
-        `when`(facebookDataManager.createGraphRequest(accessToken, "/123/photos?fields=picture,source,id")).thenReturn(mockGraphRequest)
+        `when`(facebookDataManager.createGraphRequest(accessToken, "/123/photos?fields=picture,id,images")).thenReturn(mockGraphRequest)
         `when`(facebookDataManager.request(mockGraphRequest)).thenReturn(Observable.just(mockGraphResponse))
 
         facebookDataManager.requestPictures(123, accessToken)
 
-        verify(facebookDataManager).createGraphRequest(accessToken, "/123/photos?fields=picture,source,id")
+        verify(facebookDataManager).createGraphRequest(accessToken, "/123/photos", "picture", "id", "images")
     }
 
 }
