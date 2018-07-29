@@ -67,6 +67,8 @@ dependencies {
     testImplementation mockito
     testImplementation 'org.robolectric:robolectric:3.5.1'
     testImplementation 'org.robolectric:shadows-support-v4:3.3.2'
+    testCompile 'com.squareup.picasso:picasso:2.71828'
+    testCompile 'com.github.bumptech.glide:glide:4.7.1'
     androidTestImplementation 'org.mockito:mockito-android:2.18.3'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -86,7 +88,7 @@ ext {
     libraryDescription = 'An Android Facebook image picker'
     siteUrl = 'https://github.com/mbieniek/FacebookImagePicker'
     gitUrl = 'https://github.com/mbieniek/FacebookImagePicker.git'
-    libraryVersion = '1.0.1'
+    libraryVersion = '1.0.2'
     developerId = 'mbieniek'
     developerName = 'Michael Bieniek'
     developerEmail = 'michaelpbieniek@gmail.com'
