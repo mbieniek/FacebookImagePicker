@@ -22,7 +22,7 @@ Your app will need to be configured and registered with Facebook. Click [here](h
 ### Importing Library
 In your build.gradle, add:
 ```
-implementation 'com.github.mbieniek.facebookimagepicker:facebookimagepicker:1.0.1'
+implementation 'com.github.mbieniek.facebookimagepicker:facebookimagepicker:1.0.3'
 ```
 
 In your Android Manifest, add:
