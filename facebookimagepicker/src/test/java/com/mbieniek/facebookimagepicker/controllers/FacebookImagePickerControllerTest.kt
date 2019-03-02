@@ -60,7 +60,7 @@ class FacebookImagePickerControllerTest {
 
     @Test
     fun testLoadPictures() {
-        val accessToken = AccessToken("test", "test", "test", null, null, null, null, null)
+        val accessToken = AccessToken("test", "test", "test", null, null, null, null, null, null)
         val resultList = ArrayList<FacebookPicture>()
         resultList.add(FacebookPicture("previewUrl", "sourceUrl", 123))
         resultList.add(FacebookPicture("previewUrl2", "sourceUrl2", 456))
