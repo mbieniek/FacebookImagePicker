@@ -67,7 +67,7 @@ class FacebookAlbumPickerControllerTest {
 
     @Test
     fun testLoadAlbums() {
-        val accessToken = AccessToken("test", "test", "test", null, null, null, null, null)
+        val accessToken = AccessToken("test", "test", "test", null, null, null, null, null, null)
         val resultList = ArrayList<FacebookAlbum>()
         resultList.add(FacebookAlbum(1, "Album 1", 22, null))
         resultList.add(FacebookAlbum(2, "Album 2", 33, null))
